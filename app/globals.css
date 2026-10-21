@@ -194,3 +194,18 @@
 @media(max-width:500px){#toprak-network .tn-header{padding-right:0}#toprak-network .site-sidebar{border-right:0}#toprak-network .tn-layout:has(.post),#toprak-network .tn-layout:has(.xor-page){grid-template-columns:1fr}#toprak-network .tn-header>a:not(.tn-brand){min-height:40px;display:flex;align-items:center}#toprak-network nav a{min-height:44px}#toprak-network .tag-filters button{min-height:40px}#toprak-network .tn-footer{gap:15px}#toprak-network .footer-links{gap:15px}#toprak-network .prose{font-size:15px}#toprak-network .cv-container>div:first-child{flex-wrap:wrap;gap:18px}#toprak-network .xor-pairs{gap:7px}#toprak-network .xor-pairs button{padding:10px 13px}}
 @media(max-width:380px){#toprak-network nav{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}#toprak-network nav a{font-size:12px}}
 @media(max-width:500px){#toprak-network .xor-pairs legend{float:none;width:100%;padding:0 0 12px}#toprak-network .xor-pairs button{flex:1}}
+
+/* Comfortable reading at 100% zoom; heading sizes stay unchanged. */
+body{font-size:16px}
+#toprak-network{font-size:16px;--tn-body-size:16px;--tn-menu-size:14px;--tn-small-size:12px}
+#toprak-network .tn-site{max-width:1240px}
+#toprak-network main{max-width:740px}
+#toprak-network main:has(.post),#toprak-network main:has(.xor-page){max-width:820px}
+#toprak-network .tn-map,#toprak-network .tn-spotlight{max-width:600px}
+#toprak-network .tn-about{max-width:560px}
+#toprak-network nav a{font-size:var(--tn-menu-size)}
+#toprak-network p,#toprak-network .prose,#toprak-network .prose p,#toprak-network .tn-experimenttext p,#toprak-network .cv-container p,#toprak-network .cv-container ul{font-size:var(--tn-body-size)}
+#toprak-network .tn-eyebrow,#toprak-network .tn-spotcopy .tn-eyebrow,#toprak-network .tn-sidebarfoot,#toprak-network .tn-maplink small,#toprak-network .tn-footer,#toprak-network .tn-posts>a>span,#toprak-network .tn-visit,#toprak-network .tn-contact,#toprak-network .tn-back,#toprak-network .tn-note,#toprak-network .tn-open,#toprak-network .tn-minihint,#toprak-network .tag-filters button,#toprak-network .post-meta,#toprak-network .xor-pairs legend,#toprak-network .xor-calculations>div,#toprak-network .truth-table,#toprak-network .tn-header>a:not(.tn-brand){font-size:var(--tn-small-size)}
+#toprak-network .xor-details,#toprak-network .xor-details p{font-size:var(--tn-small-size)}
+#toprak-network .contact-container>p,#toprak-network .contact-container ul,#toprak-network .contact-container input,#toprak-network .contact-container textarea{font-size:var(--tn-body-size)!important}
+@media(max-width:500px){#toprak-network nav{display:grid;grid-template-columns:1fr 1fr;gap:2px 20px}}
