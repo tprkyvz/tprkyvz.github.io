@@ -209,3 +209,18 @@ body{font-size:16px}
 #toprak-network .xor-details,#toprak-network .xor-details p{font-size:var(--tn-small-size)}
 #toprak-network .contact-container>p,#toprak-network .contact-container ul,#toprak-network .contact-container input,#toprak-network .contact-container textarea{font-size:var(--tn-body-size)!important}
 @media(max-width:500px){#toprak-network nav{display:grid;grid-template-columns:1fr 1fr;gap:2px 20px}}
+
+/* Quiet shell annotations; the page remains the primary interface. */
+#toprak-network .tn-shell{display:flex;align-items:center;flex-wrap:wrap;gap:6px 13px;font:13px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--tn-muted)}
+#toprak-network .tn-shell code{font:inherit}
+#toprak-network .tn-shell-user{color:var(--tn-ink)}
+#toprak-network .tn-shell-user>span{color:var(--tn-dim)}
+#toprak-network .tn-shell-sign{color:var(--tn-accent)}
+#toprak-network .tn-shell-command{color:var(--tn-ink)}
+#toprak-network .tn-shell-args{color:var(--tn-muted)}
+#toprak-network .tn-shell-session{border-left:2px solid var(--tn-accent);padding-left:12px}
+#toprak-network .tn-directory-command{display:flex;align-items:center;justify-content:space-between;gap:15px;max-width:600px;margin-top:31px;padding-bottom:10px;border-bottom:1px solid var(--tn-line)}
+#toprak-network .tn-directory-note{font:12px/1.8 ui-monospace,monospace;color:var(--tn-muted)}
+#toprak-network .tn-directory-command+.tn-map{margin-top:9px}
+#toprak-network .tn-tree-summary{max-width:600px;padding:13px 0 0 60px;font:12px/1.8 ui-monospace,monospace;color:var(--tn-muted)}
+@media(max-width:500px){#toprak-network .tn-directory-command{margin-top:26px}#toprak-network .tn-tree-summary{padding-left:32px}}
