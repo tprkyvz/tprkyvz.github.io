@@ -10,6 +10,7 @@
 #toprak-network .tn-header{display:flex;gap:20px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--tn-line);padding:0 93px 25px 0}
 #toprak-network .tn-brand{border:0;background:none;display:flex;align-items:center;padding:0;font-size:17px;letter-spacing:-.5px;font-weight:500;gap:12px}
 #toprak-network .tn-branddot{margin-left:-11px;color:var(--tn-accent)}
+#toprak-network .tn-falcon{width:42px;height:42px;object-fit:contain;flex-shrink:0}
 #toprak-network .tn-header>a:not(.tn-brand){font:11px ui-monospace,monospace;color:var(--tn-muted)}
 #toprak-network .tn-monogram{width:25px;height:25px;position:relative;display:inline-block;margin-right:3px;background:linear-gradient(135deg,transparent 45%,var(--tn-accent) 46%,var(--tn-accent) 49%,transparent 50%);color:var(--tn-accent)}
 #toprak-network .tn-monogram i{width:7px;height:7px;position:absolute;background:var(--tn-bg);border:1px solid currentColor;border-radius:50%}
