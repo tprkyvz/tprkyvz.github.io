@@ -55,7 +55,7 @@ export default function CV() {
                 </aside>
 
                 {/* Sağ Kolon: Deneyim & Eğitim */}
-                <main className="cv-main">
+                <div className="cv-main">
                     <section style={{ marginBottom: '40px' }}>
                         <h2 style={{ marginTop: 0, borderBottom: '2px solid var(--border)', paddingBottom: '10px' }}>Deneyim</h2>
 
@@ -79,7 +79,7 @@ export default function CV() {
                             <p style={{ color: 'var(--muted)' }}>Süleyman Demirel Üniversitesi | 2024 - Devam ediyor</p>
                         </div>
                     </section>
-                </main>
+                </div>
             </div>
         </div>
     );

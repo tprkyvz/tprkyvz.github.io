@@ -1,40 +1,19 @@
+import Link from 'next/link';
 import { getAllPostIds, getPostData } from '@/lib/posts';
-import { Metadata } from 'next';
-
-interface Props {
-    params: {
-        slug: string;
-    };
-}
-
-// Statik parametreleri oluştur (Cloudflare için gerekli)
-export async function generateStaticParams() {
-    const paths = getAllPostIds();
-    return paths.map((path) => ({
-        slug: path.params.slug,
-    }));
-}
-
-// Metadata oluştur
-export async function generateMetadata({ params }: any): Promise<Metadata> {
-    // params'ı await etmemiz gerekebilir Next.js 15'te, ama şimdilik direkt erişim deneyelim
-    // Next.js 15'te params bir Promise olabilir.
+import type { Metadata } from 'next';
+type Props = { params: Promise<{ slug: string }> };
+export function generateStaticParams() { return getAllPostIds().map(path => ({ slug: path.params.slug })); }
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
-    const postData = await getPostData(slug);
-    return {
-        title: postData.title,
-    };
+    const post = await getPostData(slug);
+    return { title: post.title, description: typeof post.description === 'string' ? post.description : undefined };
 }
-
-export default async function Post({ params }: any) {
+export default async function Post({ params }: Props) {
     const { slug } = await params;
-    const postData = await getPostData(slug);
-
-    return (
-        <article>
-            <h1>{postData.title}</h1>
-            <span className="date">{postData.date}</span>
-            <div dangerouslySetInnerHTML={{ __html: postData.contentHtml || '' }} />
-        </article>
-    );
+    const post = await getPostData(slug);
+    return <article className="post"><Link href="/blog" className="tn-back">← Yazılar</Link>
+        <header className="post-header"><h1>{post.title}</h1><div className="post-meta"><time dateTime={post.date}>{post.date}</time><span>{post.readingTime}</span></div></header>
+        <div className="prose" dangerouslySetInnerHTML={{ __html: post.contentHtml || '' }} />
+        <Link href="/blog" className="tn-visit">← Bütün yazılar</Link>
+    </article>;
 }

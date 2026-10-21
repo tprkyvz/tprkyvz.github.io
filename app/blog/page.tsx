@@ -1,13 +1,7 @@
+import type { Metadata } from 'next';
 import { getSortedPostsData } from '@/lib/posts';
 import PostList from '../components/PostList';
-
+export const metadata: Metadata = { title: 'Yazılar' };
 export default function BlogPage() {
-    const allPostsData = getSortedPostsData();
-
-    return (
-        <div>
-            <h1 className="hero-title" style={{ textAlign: 'center', marginTop: '2rem' }}>Yazılar</h1>
-            <PostList allPostsData={allPostsData} />
-        </div>
-    );
+    return <section><span className="tn-eyebrow">NOT DEFTERİ</span><h1>Yazılar</h1><PostList allPostsData={getSortedPostsData()} /></section>;
 }

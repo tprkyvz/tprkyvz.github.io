@@ -1,42 +1,20 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { JetBrains_Mono, Noto_Sans } from 'next/font/google';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
-const jetbrainsMono = JetBrains_Mono({
-    subsets: ['latin'],
-    weight: ['400', '700'],
-    variable: '--font-mono',
-    display: 'swap',
-});
-
-const notoSans = Noto_Sans({
-    subsets: ['latin'],
-    weight: ['400', '700'],
-    variable: '--font-sans',
-    display: 'swap',
-});
+import Sidebar from './components/Sidebar';
 
 export const metadata: Metadata = {
-    title: "Toprak's blog",
-    description: '',
+    metadataBase: new URL('https://tprkyvz.github.io'),
+    title: { default: 'Toprak Yavuz', template: '%s · Toprak Yavuz' },
+    description: 'Toprak Yavuz — siber güvenlik, ağlar ve Linux üzerine notlar ve etkileşimli deneyler.',
 };
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
-    return (
-        <html lang="tr" className={`${jetbrainsMono.variable} ${notoSans.variable}`}>
-            <body>
-                <div className="container">
-                    <Header />
-                    <main>{children}</main>
-                    <Footer />
-                </div>
-            </body>
-        </html>
-    );
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+    return <html lang="tr"><body>
+        <a className="skip-link" href="#icerik">İçeriğe geç</a>
+        <div id="toprak-network"><div className="tn-site">
+            <Header /><div className="tn-layout"><Sidebar /><main id="icerik">{children}</main></div><Footer />
+        </div></div>
+    </body></html>;
 }
