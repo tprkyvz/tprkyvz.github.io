@@ -2,8 +2,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 const navigation = [
-    { href: '/', label: 'Ana sayfa' }, { href: '/blog', label: 'Yazılar' },
-    { href: '/deneyler', label: 'Deneyler' }, { href: '/hakkimda', label: 'Hakkımda' },
+    { href: '/', label: 'Ana sayfa' }, { href: '/blog', label: 'TBlogs' },
+    { href: '/muhayyer-yazilar', label: 'Muhayyer Yazılar' },
+    { href: '/kitaplar', label: 'Kitaplar' }, { href: '/deneyler', label: 'Deneyler' }, { href: '/hakkimda', label: 'Hakkımda' },
 ];
 export default function Sidebar() {
     const pathname = usePathname();

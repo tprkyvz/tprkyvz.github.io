@@ -2,7 +2,9 @@ import Link from 'next/link';
 import XorPreview from './components/XorPreview';
 import ShellPrompt from './components/ShellPrompt';
 const sections = [
-    { href: '/blog', title: 'Yazılar', subtitle: 'Çalışma notları' },
+    { href: '/blog', title: 'TBlogs', subtitle: 'Teknik blog yazıları' },
+    { href: '/muhayyer-yazilar', title: 'Muhayyer Yazılar', subtitle: 'Aklıma gelenler' },
+    { href: '/kitaplar', title: 'Kitaplar', subtitle: 'Okuduklarım üzerine' },
     { href: '/deneyler', title: 'Deneyler', subtitle: 'Etkileşimli çalışmalar' },
     { href: '/hakkimda', title: 'Hakkımda', subtitle: 'Kısaca ben' },
 ];
@@ -14,7 +16,7 @@ export default function Home() {
             <div className="tn-map" aria-label="Site bölümleri"><div className="tn-origin" aria-hidden="true"><i /></div>
                 <div className="tn-branches">{sections.map(({ href, title, subtitle }) => <Link className="tn-maplink" href={href} key={href}><span className="tn-node" aria-hidden="true" /><span><strong>{title}</strong><small>{subtitle}</small></span><b aria-hidden="true">↗</b></Link>)}</div>
             </div>
-            <div className="tn-tree-summary" aria-hidden="true">3 directories</div>
+            <div className="tn-tree-summary" aria-hidden="true">{sections.length} directories</div>
         </section>
         <XorPreview />
     </>;

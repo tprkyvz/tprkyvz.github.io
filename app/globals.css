@@ -225,3 +225,17 @@ body{font-size:16px}
 #toprak-network .tn-directory-command+.tn-map{margin-top:9px}
 #toprak-network .tn-tree-summary{max-width:600px;padding:13px 0 0 60px;font:12px/1.8 ui-monospace,monospace;color:var(--tn-muted)}
 @media(max-width:500px){#toprak-network .tn-directory-command{margin-top:26px}#toprak-network .tn-tree-summary{padding-left:32px}}
+
+/* Reading journal */
+#toprak-network .books-profile{display:flex;flex-direction:column;align-items:flex-start;position:relative;overflow:hidden;margin-top:28px;padding:34px 36px;border:1px solid var(--tn-line);border-radius:5px;background:var(--tn-surface);color:var(--tn-ink)}
+#toprak-network .books-profile:after{content:'';position:absolute;right:32px;top:34px;bottom:34px;width:54px;border-left:1px solid var(--tn-line);border-right:1px solid var(--tn-line);transform:skewY(-12deg);pointer-events:none}
+#toprak-network .books-profile-brand{font:500 clamp(36px,7vw,54px)/1.2 Arial,Helvetica,sans-serif;letter-spacing:-2px;margin:16px 0 20px;color:var(--tn-ink)}
+#toprak-network .books-profile-brand>span{color:var(--tn-accent)}
+#toprak-network .books-profile-name{font-size:18px;color:var(--tn-ink)}
+#toprak-network .books-profile-caption{font-size:14px;color:var(--tn-muted);margin-top:5px;max-width:80%}
+#toprak-network .books-profile-visit{display:flex;align-items:center;gap:14px;font:12px/1.8 ui-monospace,monospace;color:var(--tn-accent);margin-top:24px}
+#toprak-network a.books-profile:hover{border-color:var(--tn-accent)}
+#toprak-network .books-writing{margin-top:40px}
+#toprak-network .books-writing>h2{font-size:21px}
+#toprak-network .books-empty{margin-top:22px;padding:25px 0;border-top:1px solid var(--tn-line);border-bottom:1px solid var(--tn-line)}
+@media(max-width:500px){#toprak-network .books-profile{padding:26px 22px}#toprak-network .books-profile:after{right:22px;width:28px}#toprak-network .books-profile-caption{max-width:85%}}

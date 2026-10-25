@@ -5,7 +5,18 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import { PostData } from './types';
 
-const postsDirectory = path.join(process.cwd(), 'content');
+type Collection = 'blog' | 'books' | 'muhayyer';
+
+function getPostsDirectory(collection: Collection) {
+    return path.join(process.cwd(), 'content', collection === 'blog' ? '' : collection);
+}
+
+function getFileNames(directory: string) {
+    if (!fs.existsSync(directory)) return [];
+    return fs.readdirSync(directory, { withFileTypes: true })
+        .filter(entry => entry.isFile() && entry.name.endsWith('.md'))
+        .map(entry => entry.name);
+}
 
 function calculateReadingTime(content: string): string {
     const wordsPerMinute = 200;
@@ -14,14 +25,9 @@ function calculateReadingTime(content: string): string {
     return `~${minutes} dk okuma`;
 }
 
-export function getSortedPostsData(): PostData[] {
-    // Create content directory if it doesn't exist
-    if (!fs.existsSync(postsDirectory)) {
-        fs.mkdirSync(postsDirectory, { recursive: true });
-        return [];
-    }
-
-    const fileNames = fs.readdirSync(postsDirectory);
+export function getSortedPostsData(collection: Collection = 'blog'): PostData[] {
+    const postsDirectory = getPostsDirectory(collection);
+    const fileNames = getFileNames(postsDirectory);
     const allPostsData = fileNames.map((fileName) => {
         const id = fileName.replace(/\.md$/, '');
         const fullPath = path.join(postsDirectory, fileName);
@@ -48,11 +54,12 @@ export function getSortedPostsData(): PostData[] {
     });
 }
 
-export function getAllPostIds() {
+export function getAllPostIds(collection: Collection = 'blog') {
+    const postsDirectory = getPostsDirectory(collection);
     if (!fs.existsSync(postsDirectory)) {
         return [];
     }
-    const fileNames = fs.readdirSync(postsDirectory);
+    const fileNames = getFileNames(postsDirectory);
     return fileNames.map((fileName) => {
         return {
             params: {
@@ -62,7 +69,8 @@ export function getAllPostIds() {
     });
 }
 
-export async function getPostData(id: string): Promise<PostData> {
+export async function getPostData(id: string, collection: Collection = 'blog'): Promise<PostData> {
+    const postsDirectory = getPostsDirectory(collection);
     const fullPath = path.join(postsDirectory, `${id}.md`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);

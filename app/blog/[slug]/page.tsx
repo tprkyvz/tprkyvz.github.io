@@ -11,9 +11,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Post({ params }: Props) {
     const { slug } = await params;
     const post = await getPostData(slug);
-    return <article className="post"><Link href="/blog" className="tn-back">← Yazılar</Link>
+    return <article className="post"><Link href="/blog" className="tn-back">← TBlogs</Link>
         <header className="post-header"><h1>{post.title}</h1><div className="post-meta"><time dateTime={post.date}>{post.date}</time><span>{post.readingTime}</span></div></header>
         <div className="prose" dangerouslySetInnerHTML={{ __html: post.contentHtml || '' }} />
-        <Link href="/blog" className="tn-visit">← Bütün yazılar</Link>
+        <Link href="/blog" className="tn-visit">← Bütün teknik yazılar</Link>
     </article>;
 }
