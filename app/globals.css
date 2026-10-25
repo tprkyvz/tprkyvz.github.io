@@ -239,3 +239,6 @@ body{font-size:16px}
 #toprak-network .books-writing>h2{font-size:21px}
 #toprak-network .books-empty{margin-top:22px;padding:25px 0;border-top:1px solid var(--tn-line);border-bottom:1px solid var(--tn-line)}
 @media(max-width:500px){#toprak-network .books-profile{padding:26px 22px}#toprak-network .books-profile:after{right:22px;width:28px}#toprak-network .books-profile-caption{max-width:85%}}
+
+/* More readable links on the about page. */
+#toprak-network .tn-contact a{display:inline-flex;align-items:center;min-height:44px;font-size:16px;line-height:1.6;padding:4px 0}
